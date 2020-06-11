@@ -236,6 +236,18 @@ class JPage {
                         this.pageConfig.current = current
                         this.switchPage()
                     }
+
+                    if (e.target.classList.contains('after-ellipses')) {
+                        let page = this.pageConfig.current + 2;
+                        this.pageConfig.current = page > this.pageConfig.amount ? this.pageConfig.amount : page;
+                        this.switchPage()
+                    }
+
+                    if (e.target.classList.contains('before-ellipses')) {
+                        let page = this.pageConfig.current - 2;
+                        this.pageConfig.current = page <= 0 ? 1 : page;
+                        this.switchPage()
+                    }
                 }
                 this.switchPage()
             }
