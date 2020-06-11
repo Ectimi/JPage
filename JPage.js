@@ -15,7 +15,7 @@ class JPage {
         this.hides = [] //需要隐藏的页码
 
         //监听页码变化,可重新赋值更改函数
-        this.onPageChange = ()=>{}
+        this.onPageChange = () => { }
         this.init()
     }
 
@@ -232,7 +232,7 @@ class JPage {
                 this.$('.prev-btn').addEventListener('click', this.prevPage)
                 this.$('.page-wrapper').onclick = e => {
                     let current = Number(e.target.dataset.pageNumber)
-                    if (current) {
+                    if (current && current != this.pageConfig.current) {
                         this.pageConfig.current = current
                         this.switchPage()
                     }
