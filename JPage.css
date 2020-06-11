@@ -1,0 +1,43 @@
+#page ul,
+#page li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 14px;
+}
+
+#page .page-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+#page .prev-btn,
+#page .next-btn {
+    min-width: 55px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #1989fa;
+    background-color: #fff;
+}
+
+
+#page .page-item {
+    min-width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    list-style: none;
+    color: #1989fa;
+    background-color: #fff;
+}
+
+#page .current {
+    color: #fff;
+    background-color: #1989fa;
+}
+
+#page .disable {
+    color: #646566;
+    background-color: #f7f8fa;
+}
