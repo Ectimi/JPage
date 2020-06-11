@@ -10,7 +10,7 @@
 2.调用构造函数 new JPage() 即可
 
 ### 效果图如下 
-![效果图](./demo.gif)
+![效果图](https://github.com/Ectimi/JPage/blob/master/demo.gif)
 
 ### 具体使用方法可查看 html 文件，
 
