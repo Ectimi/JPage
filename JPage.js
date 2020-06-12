@@ -188,7 +188,7 @@ class JPage {
         page_div.append(ul)
         frag.append(page_div)
 
-        if (this.container == 'body') {
+        if (this.container == 'body'||!this.container) {
             document.body.append(frag)
         } else {
             this.$(this.container).append(frag)
