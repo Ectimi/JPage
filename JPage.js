@@ -37,7 +37,7 @@ class JPage {
 
     //超过6页才显示省略号，否则页码全部显示 
     needShowAllPageItem() {
-        return this.pageConfig.amount > 6;
+        return this.pageConfig.amount <= 6;
     }
 
     //隐藏不需要显示的页码
@@ -58,7 +58,7 @@ class JPage {
 
     //获取需要隐藏的页码
     getNeedHides() {
-        if (this.needShowAllPageItem()) {
+        if (!this.needShowAllPageItem()) {
             let currentPage = this.pageConfig.current
             this.hides = []
             if (currentPage + this.pageConfig.showNumber > this.pageConfig.amount) {
@@ -130,7 +130,7 @@ class JPage {
         /*
             构造以下html结构
                 <div id="page">
-                    <ul class="page-box">
+                    <ul class="page-wrapper">
                         <li class="prev-btn">上一页</li>
                         <li class="page-item before-ellipses">...</li>
                         <li class="page-item page-1 current" data-page="1">1</li>

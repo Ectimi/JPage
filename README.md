@@ -12,11 +12,14 @@
 ### 效果图如下 
 ![效果图](https://github.com/Ectimi/JPage/blob/master/demo.gif)
 
+可fork项目运行html查看效果
+
 ### 具体使用方法可查看 html 文件，
 
 构造函数具体参数如下：
 ```javascript
 /*
+//默认配置
 {
     container:'body',   //类名选择器，不填则默认把插件添加到body末尾,
     pageConfig: {
