@@ -28,13 +28,6 @@ class JPage {
         return el;
     }
 
-    //修改样式
-    setStyle(selector, properties) {
-        for (let key in properties) {
-            document.querySelector(selector).style[key] = properties[selector]
-        }
-    }
-
     //超过6页才显示省略号，否则页码全部显示 
     needShowAllPageItem() {
         return this.pageConfig.amount <= 6;
@@ -42,15 +35,15 @@ class JPage {
 
     //隐藏不需要显示的页码
     hidePageItem() {
-        for (var i = 0, len = this.hides.length; i < len; i++) {
+        for (let i = 0, len = this.hides.length; i < len; i++) {
             this.$(`.page-${this.hides[i]}`).style.display = 'none'
         }
     }
 
     //显示页码
     showPageItem() {
-        for (var i = 1; i <= this.pageConfig.amount; i++) {
-            if (this.hides.indexOf(i) == -1) {
+        for (let i = 1; i <= this.pageConfig.amount; i++) {
+            if (this.hides.indexOf(i) === -1) {
                 this.$(`.page-${i}`).style.display = 'block'
             }
         }
@@ -68,7 +61,7 @@ class JPage {
                 this.showBeforeEllipses = true;
                 this.showAfterEllipses = false
             } else {
-                if (currentPage == 1) {
+                if (currentPage === 1) {
                     for (let i = currentPage + this.pageConfig.showNumber; i <= this.pageConfig.amount; i++) {
                         this.hides.push(i)
                     }
@@ -119,9 +112,9 @@ class JPage {
 
     //上一页
     prevPage = () => {
-        if (this.pageConfig.current - 1 == 0) return
+        if (this.pageConfig.current - 1 === 0) return
         let page = this.pageConfig.current - 1;
-        this.pageConfig.current = page == 0 ? this.pageConfig.amount : page
+        this.pageConfig.current = page === 0 ? this.pageConfig.amount : page
         this.switchPage()
     }
 
@@ -168,7 +161,7 @@ class JPage {
 
         for (let i = 1, len = this.pageConfig.amount; i <= len; i++) {
             let page_item_li
-            if (i == 1) {
+            if (i === 1) {
                 page_item_li = this.createEl('li', {
                     className: `page-item page-${i} current`,
                     innerText: i
@@ -188,23 +181,23 @@ class JPage {
         page_div.append(ul)
         frag.append(page_div)
 
-        if (this.container == 'body'||!this.container) {
+        if (this.container === 'body'||!this.container) {
             document.body.append(frag)
         } else {
             this.$(this.container).append(frag)
         }
     }
 
-    //检测上一页、下一页按钮是否可用，不可用则添加 disbale 样式
+    //检测上一页、下一页按钮是否可用，不可用则添加 disable 样式
     checkDisable() {
-        //如果第一页是当前页，则上一页按钮添加 disbale 样式
+        //如果第一页是当前页，则上一页按钮添加 disable 样式
         if (this.$('.page-1').classList.contains('current')) {
             this.$('.prev-btn').classList.add('disable')
         } else {
             this.$('.prev-btn').classList.remove('disable')
         }
 
-        //如果最后一页是当前页，则把下一页按钮添加 disbale 样式
+        //如果最后一页是当前页，则把下一页按钮添加 disable 样式
         if (this.$(`.page-${this.pageConfig.amount}`).classList.contains('current')) {
             this.$('.next-btn').classList.add('disable')
         } else {
@@ -232,7 +225,7 @@ class JPage {
                 this.$('.prev-btn').addEventListener('click', this.prevPage)
                 this.$('.page-wrapper').onclick = e => {
                     let current = Number(e.target.dataset.pageNumber)
-                    if (current && current != this.pageConfig.current) {
+                    if (current && current !== this.pageConfig.current) {
                         this.pageConfig.current = current
                         this.switchPage()
                     }
